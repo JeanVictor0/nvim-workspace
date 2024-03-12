@@ -8,6 +8,10 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'lewis6991/gitsigns.nvim'
+ 
+  use 'nvim-tree/nvim-web-devicons' 
+  
+  use 'romgrk/barbar.nvim'
 
   use {
 	'nvim-tree/nvim-tree.lua',
@@ -21,29 +25,36 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
+  use {
+	'nvim-lualine/lualine.nvim',
+	requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   use({
-      "folke/trouble.nvim",
-      config = function()
-          require("trouble").setup {
-              icons = false,
-          }
-      end
+	'rose-pine/neovim',
+	as = 'rose-pine',
+	config = function()
+		vim.cmd('colorscheme rose-pine')
+	end
+  })
+
+  use 'mfussenegger/nvim-lint'
+
+  use({
+	"folke/trouble.nvim",
+	config = function()
+		require("trouble").setup {
+			icons = false,
+		}
+	end
   })
 
   use {
-			'nvim-treesitter/nvim-treesitter',
-			run = function()
-				local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-				ts_update()
-			end,}
+	'nvim-treesitter/nvim-treesitter',
+	run = function()
+		local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+		ts_update()
+	end,}
   use("nvim-treesitter/playground")
   use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")
