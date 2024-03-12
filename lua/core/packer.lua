@@ -38,6 +38,10 @@ return require('packer').startup(function(use)
 	end
   })
 
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'folke/neodev.nvim'
+
   use 'mfussenegger/nvim-lint'
 
   use({
@@ -48,6 +52,8 @@ return require('packer').startup(function(use)
 		}
 	end
   })
+
+  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
 
   use {
 	'nvim-treesitter/nvim-treesitter',
