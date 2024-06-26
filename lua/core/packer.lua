@@ -9,7 +9,9 @@ return require('packer').startup(function(use)
 
     use 'lewis6991/gitsigns.nvim'
 
-    use 'nvim-tree/nvim-web-devicons' 
+    use 'nvim-tree/nvim-web-devicons'
+
+    use 'mhartington/formatter.nvim'
 
     use 'romgrk/barbar.nvim'
 
