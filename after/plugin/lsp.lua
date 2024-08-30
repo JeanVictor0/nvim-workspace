@@ -5,7 +5,10 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'terraformls',
-  'eslint'
+  'eslint',
+  'pyright',
+  'gopls',
+  'clangd'
 })
 
 lsp.nvim_workspace()
@@ -51,7 +54,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-vim.lsp.set_log_level("debug")
+require("lspconfig").clangd.setup({})
 
 lsp.setup()
 

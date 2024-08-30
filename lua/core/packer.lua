@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use { "nvim-neotest/nvim-nio" }
+
     use 'lewis6991/gitsigns.nvim'
 
     use 'nvim-tree/nvim-web-devicons'
@@ -51,15 +53,16 @@ return require('packer').startup(function(use)
 
     use "sindrets/diffview.nvim"
 
-    -- use {
-    --     'paopaol/telescope-git-diffs.nvim',
-    --     requires = {
-    --         "nvim-lua/plenary.nvim",
-    --         "sindrets/diffview.nvim",
-    --     },
-    -- }
-    -- use 'mfussenegger/nvim-dap'
-    -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use {
+        'paopaol/telescope-git-diffs.nvim',
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+        },
+    }
+    use 'f-person/git-blame.nvim'
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use 'folke/neodev.nvim'
 
     use 'mfussenegger/nvim-lint'
